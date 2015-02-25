@@ -1,8 +1,8 @@
 #--------------------------------------------------------------------------------
 # Values for this workshop - EDIT THIS SECTION.
 #--------------------------------------------------------------------------------
-workshop_repo   : "https://github.com/realviacauchy/2015-03-05-uvasom"
-workshop_site   : "http://realviacauchy.github.io/2015-03-05-uvasom"
+workshop_repo   : "https://github.com/bioconnector/2015-03-05-uvasom"
+workshop_site   : "http://bioconnector.github.io/2015-03-05-uvasom"
 #--------------------------------------------------------------------------------
 # Standard Software Carpentry settings - should not need to be modified.
 #--------------------------------------------------------------------------------
