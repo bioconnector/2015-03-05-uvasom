@@ -313,14 +313,15 @@ Over time, it will become easier for you to keep a mental note of the structure 
 ### Saving time with shortcuts and wild cards
 
 #### Shortcuts
+#### ~ Tilde
 
-There are some shortcuts which you should know about. Dealing with the home directory is very common. In the shell the tilde character, `~`, is a shortcut for your home directory.
+There are some shortcuts which you should know about. Dealing with the home directory is very common. In the shell the tilde character, `~`, is a shortcut for your home directory. The tilde key is located at the top left of your keyboard above the tab key.
 
 ```bash
 ls ~
 ```
 
-Try it even when you're not in your home directory:
+That's no big deal, since we are already in the home directory. But what if we weren't? Let's go to the workshops directory, like so:
 
 ```bash
 cd
@@ -333,21 +334,30 @@ Then enter the command:
 ls ~
 ```
 
-This prints the contents of your home directory, without you having to type the full path. The shortcut `..` always refers to the directory above your current directory.
+This prints the contents of your home directory, without you having to type the full path. In this case we were only one directory away, but if we had been all the way down in the hidden folder, we wouldn't want to climb all the way back home just to have a peek at the contents.
+
+#### .. Double Dot
+The shortcut `..`, which I call 'double dot' or 'dot dot' always refers to the directory above your current directory.
+
+So, from where we are in the `workshops/` folder
 
 ```bash
 ls ..
 ```
 
-prints the contents of the `/home/username/`. You can chain these together, so:
+prints the contents of the `/home/swc/`. You can chain these together, so:
 
 ```bash
 ls ../../
 ```
 
-prints the contents of `/home/`. Finally, the special directory `.` always refers to your current directory. So, `ls`, `ls .`, and `ls ././././.` all do the same thing, they print the contents of the current directory. This may seem like a useless shortcut right now, but we'll see when it is needed in a little while.
+prints the contents of `/home/`, two directories up from our current position.
 
-To summarize, while you are in the `workshops` directory, the commands `ls ~`, `ls ../`, and `ls /home/bioinfo` all do exactly the same thing.
+#### . The Special Directory
+Finally, the special directory `.` always refers to your current directory. So, `ls`, `ls .`, and `ls ././././.` all do the same thing, they print the contents of the current directory. This may seem trivial right now, but it's actually very useful. `ls` is able to be used on its own without specifying an argument because it 'understands' that, in the absence of a path, it should list the contents of the current directory, but not all programs can handle that. We'll see that later on.
+
+
+To summarize, while you are in the `workshops` directory, the commands `ls ~`, `ls ../`, and `ls /home/swc` all do exactly the same thing.
 
 #### Our data set: FASTQ files
 
