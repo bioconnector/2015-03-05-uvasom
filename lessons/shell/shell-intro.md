@@ -696,7 +696,7 @@ Now we can move around in the file structure, look at files, search files, redir
 
 The `coldata.csv` file tells us which sample names are which treatment (in this example the filenames are pretty informative, but when they come off the sequencer usually they won't be). This is a really important file, so we want to make a copy so we don't lose it.
 
-Lets copy the file using the `cp` command. The `cp` command backs up the file. Navigate to the `rnaseq-1day/data` directory and enter:
+Lets copy the file using the `cp` command. The `cp` command backs up the file. Navigate to the `data/rnaseq` directory and enter:
 
 ```bash
 cp coldata.csv coldata.csv-backup
@@ -718,7 +718,7 @@ We can now move our backed up file in to this directory. We can move files aroun
 mv coldata.csv-backup backup
 ```
 
-This moves `coldata.csv-backup` into the directory `backup/` or the full path would be `~/workshops/lessons/rnaseq-1day/data/backup/coldata.csv-backup`
+This moves `coldata.csv-backup` into the directory `backup/` or the full path would be `~/workshops/lessons/shell/data/rnaseq/backup/coldata.csv-backup`
 
 The `mv` command is also how you rename files. Since this file is important, let's rename it:
 
@@ -747,7 +747,7 @@ The `rm` file removes the file. Be careful with this command. It doesn't just ni
 Do the following:
 
 1.	Rename the `coldata-IMPORTANT.csv` file back to `coldata.csv`.
-2.	Create a new directory in the rnaseq-1day directory called `new`.
+2.	Create a new directory in the rnaseq directory called `new`.
 3.	Then, copy the `coldata.csv` file into `new`
 
 ---
@@ -799,7 +799,7 @@ Now you've written a file. You can take a look at it with less or cat, or open i
 cowsay -l
 ```
 2. Open 'awesome.sh' and edit the option after `-f` to be one of the other shape names from Step 1.
-3. Add the command `echo Done` below the animal command.
+3. Add the command `echo "Done"` below the animal command.
 4. Save the file.
 
 We're going to come back and use this file shortly.
@@ -836,7 +836,7 @@ Remember that file where we wrote that cute animal command? If we want to see th
 awesome.sh
 ```
 
-You should get an error saying that awesome.sh cannot be found. That is because the directory `~/workshops/lessons/rnaseq-1day/data` is not in the`PATH`. You can try again to run the `awesome.sh` program by entering:
+You should get an error saying that awesome.sh cannot be found. That is because the directory `~/workshops/lessons/shell/data/rnaseq/` is not in the`PATH`. You can try again to run the `awesome.sh` program by entering:
 
 ```bash
 ./awesome.sh
