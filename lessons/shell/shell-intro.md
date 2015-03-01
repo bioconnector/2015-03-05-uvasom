@@ -382,6 +382,8 @@ ls /usr/bin/*.sh
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`.
 
+You will note that the location of the wildcard changed. You put the wildcard at the *beginning* when you don't care how a file name *starts* and at the *end* when you don't care how it *ends*.
+
 If we wanted to list just the files whose names begin with certains letters, we could do this:
 
 ```bash
@@ -539,6 +541,10 @@ tail -n 4 car-speeds.csv
 ```
 
 ### Searching files
+
+I'm about to teach you the only word you will ever need to say to convince everyone that you are a command-line bad ass. Are you ready?
+
+**grep**
 
 We showed a little how to search within a file using `less`.
 
