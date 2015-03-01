@@ -361,15 +361,12 @@ Finally, the special directory `.` always refers to your current directory. So, 
 
 To summarize, while you are in the `workshops` directory, the commands `ls ~`, `ls ../`, and `ls /home/swc` all do exactly the same thing.
 
-#### Our data set: FASTQ files
-
-In this example we're going to use some RNA-seq data that we'll actually analyze later on. The data come from RNA-seq done on skin cells treated with ultraviolet light versus controls ([paper](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0093338); [data](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE54413)).
-
-We did sequencing, and what we have here are just reads that came from a 100 MB region on chromosome 4. We want to be able to look at these files and do some things with them.
 
 #### Wild cards
+In this example we're going to use some RNA-seq data which comes from RNA-seq done on skin cells treated with ultraviolet light versus controls ([paper](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0093338); [data](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE54413)).
 
-Navigate to the `workshops/lessons/shell/data/rnaseq/` directory from your home. This directory contains FASTQ files that are used during RNA-Seq. If we type `ls`, we will see that there are several files in there. Some of the end with .fastq.gz. That extra `.gz` extension tells us that these are compressed  files.
+
+Navigate to the `workshops/lessons/shell/data/rnaseq/` directory from your home. This directory contains FASTQ files that are used during RNA-Seq. If we type `ls`, we will see that there are several files in there. Some of the end with `.fastq.gz`. That extra `.gz` extension tells us that these are compressed  files.
 
 The `*` character is a shortcut for "everything". Thus, if you enter `ls *`, you will see all of the contents of a given directory. But what if you only want to see a certain subset of files in the directory?
 
@@ -420,7 +417,7 @@ Do each of the following using a single `ls` command without navigating to a dif
 
 Sometimes I want to repeat a command that I typed previously. I'm obviously much too lazy to re-type a really long command. Luckily, you can easily access previous commands. Hit the up arrow. Hit it again. You can step backwards through your command history. The down arrow takes your forwards in the command history.
 
-Control-C will cancel the command you are writing, and give you a fresh prompt.
+`Control-C` will cancel the command you are writing, and give you a fresh prompt.
 
 If the command you want to repeat is far back, it starts to feel like work to press the up arrow so much. Luckily, you can also review your recent commands with the `history` command to see a numbered list of commands you've run.
 
@@ -472,6 +469,8 @@ cat car-speeds.csv
 This prints out the contents of the `car-speeds.csv` file.
 
 
+We did sequencing, and what we have here are just reads that came from a 100 MB region on chromosome 4. We want to be able to look at these files and do some things with them.
+
 ---
 
 **EXERCISE**
@@ -481,7 +480,7 @@ This prints out the contents of the `car-speeds.csv` file.
 
 ---
 
-Make sure we're in the right place for the next set of the lessons. We want to be in the rnaseq data directory (`workshops/lessons/intro-r/data`). Check if you're there with `pwd` and if not navigate there. One way to do that would be
+Make sure we're in the right place for the next set of the lessons. We want to be in the intro-r data directory (`workshops/lessons/intro-r/data`). Check if you're there with `pwd` and if not navigate there. One way to do that would be
 
 ```bash
 cd ~/workshops/lessons/intro-r/data
@@ -492,7 +491,7 @@ cd ~/workshops/lessons/intro-r/data
 The program, `less`, is useful when files are big and you want to be able to scroll through them.
 
 ```bash
-less ctl1.fastq
+less car-speeds.csv
 ```
 
 `less` opens the file, and lets you navigate through it. The commands
@@ -509,24 +508,34 @@ are identical to the `man` program.
 | G     | go to the end       |
 | q     | quit                |
 
-`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching `ctl1.fasta` for the the sequence "GATTACA". If you hit "/" then "enter", `less` will just repeat the previous search. `less` searches from the current location and works its way forward. If you are at the end of the file and search for "GATTACA", `less` will not find it. You need to go to the beginning of the file with the `g` key in less, and start the search from there.
+`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching `car-speeds.csv` for the word of "Blue". If you hit "/" then "enter", `less` will just repeat the previous search. `less` searches from the current location and works its way forward. If you are at the end of the file and search for "Blue", `less` will not find it. You need to go to the beginning of the file with the `g` key in less, and start the search from there.
 
 Remember, the `man` program actually uses `less` internally and therefore uses the same commands, so you can search documentation using "/" as well!
 
 There's another way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
 
-The commands `head` and `tail` let you look at the beginning and end of a file respectively.
-
+In order to look at the first 10 lines of a file I can use:
 ```bash
-head ctl1.fastq
-tail ctl1.fastq
+head car-speeds.csv
 ```
+In genomics, I work with files that are much much to big to open, but often I need to see the first line in order to learn my column names.
 
-The `-n` option to either of these commands can be used to print the first or last `n` lines of a file. If we want to see the first read in the file, try this:
+I can use the `-n` flag, followed by a number, to print only the first row of the file, like so:
 
 ```bash
-head -n 4 ctl1.fastq
-tail -n 4 ctl1.fastq
+head -n1 car-speeds.csv
+```
+Just as `head` prints the first 10 lines of the file, there's another program that will print only the last 10 lines of the file. Can you guess what it's called?
+
+```bash
+tail car-speeds.csv
+```
+There are various reasons why you might want to take a quick look at the end of your file. Among others, you might want to make sure that the table is complete. If something got messed up during data production, you might have uneven or incomplete columns.
+If you want to see only the last 4 lines of the file, you can use the `-n` option.
+
+
+```bash
+tail -n 4 car-speeds.csv
 ```
 
 ### Searching files
