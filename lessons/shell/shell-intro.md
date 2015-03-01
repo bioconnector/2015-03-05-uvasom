@@ -451,32 +451,40 @@ Find the line number in your history for the last exercise (listing files in /bi
 
 ---
 
+
 ### Examining Files
+
+Navigate to the intro-r data folder.
+
+```bash
+cd
+cd workshops/lessons/intro-r/data
+```
 
 We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?
 
-The easiest way to examine a file is to print out all of the contents using the program `cat`. Enter the following command:
+The easiest way to examine a file is to print out all of the contents using the program `cat`, which is short for 'concatenate'. Enter the following command:
 
 ```bash
-cat ctl1.fastq
+cat car-speeds.csv
 ```
 
-This prints out the contents of the `ctl1.fastq` file.
+This prints out the contents of the `car-speeds.csv` file.
 
 
 ---
 
 **EXERCISE**
 
--	Print out the contents of the `workshops/lessons/rnaseq-1day/data/coldata.csv` file. What does this file contain?
--	Without changing directories, use one short command to print the contents of all of the files in the `~/workshops/posts/` directory.
+-	Print out the contents of the `workshops/lessons/intro-r/small-01.csv` file. What does this file contain?
+-	Without changing directories, use one short command to print the contents of all of the files in the `~/workshops/shell/data/words` directory.
 
 ---
 
-Make sure we're in the right place for the next set of the lessons. We want to be in the rnaseq data directory (`workshops/lessons/rnaseq-1day/data`). Check if you're there with `pwd` and if not navigate there. One way to do that would be
+Make sure we're in the right place for the next set of the lessons. We want to be in the rnaseq data directory (`workshops/lessons/intro-r/data`). Check if you're there with `pwd` and if not navigate there. One way to do that would be
 
 ```bash
-cd ~/workshops/lessons/rnaseq-1day/data
+cd ~/workshops/lessons/intro-r/data
 ```
 
 `cat` is a terrific program, but when the file is really big, it can be annoying to use.
