@@ -70,14 +70,6 @@ Web sites where you can see what the different components of a shell command are
 
 
 
-
-<!--
-- fixme: add content about amazon on separate 00-lesson?
-- fixme: launching instance w/o keys
-- fixme: connecting to instance w/ username/password (terminal on mac, putty on windows)
-- fixme: file transfer on mac/windows with cyberduck
--->
-
 ## Shell basics
 
 ### Get some data files to work with
