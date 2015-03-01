@@ -752,19 +752,25 @@ Do the following:
 
 ---
 
+Now lets remove the `new` directory that you just made. If we use:
+
+```bash
+rm new
+```
+it doesn't work. 
 By default, `rm`, will NOT delete directories. You can tell `rm` to delete a directory and everything in it *recursively* using the `-r` option. Let's delete that `new` directory we just made. Enter the following command:
 
 ```bash
 rm -r new
 ```
 
-Be careful with this.
+Be careful with this. With great power comes great responsibility.
 
 ### Writing files
 
 We've been able to do a lot of work with files that already exist, but what if we want to write our own files. Obviously, we're not going to type in a FASTA file, but there are a lot of reasons we'll want to edit a file.
 
-To write in files, we're going to use the program `nano`. We're going to create a file that contains the favorite grep command so you can remember it for later. We'll name this file 'awesome.sh'.
+To write in files, we're going to use the program `nano`. Again, there are several different programs that can be used for this, but in this case we have decided to show you `nano`. We're going to create a file that contains a witty animal command. We'll name this file 'awesome.sh'.
 
 ```bash
 nano awesome.sh
@@ -773,10 +779,14 @@ nano awesome.sh
 Enter the following into the file:
 
 ```bash
-grep -B 1 -A 2 GATTACA *.fastq
+cowsay -f beavis.zen "Heheheh"
+
+#or
+
+cowsay -f ghostbusters "I ain't afraid!"
 ```
 
-At the bottom of nano, you see the "^X Exit". That means that we use Ctrl-X to exit. Type `Ctrl-X`. It will ask if you want to save it. Type `y` for yes. Then it asks if you want that file name. Hit 'Enter'.
+At the bottom of nano, you see the "^X Exit". That means that we use `Ctrl-X` to exit. Type `Ctrl-X`. It will ask if you want to save it. Type `y` for yes. Then it asks if you want that file name. Hit 'Enter'.
 
 
 Now you've written a file. You can take a look at it with less or cat, or open it up again and edit it.
@@ -784,10 +794,15 @@ Now you've written a file. You can take a look at it with less or cat, or open i
 ---
 
 **EXERCISE**
+1. Look at the possible shapes that can be used by `cowsay` with the command:
+```bash
+cowsay -l
+```
+2. Open 'awesome.sh' and edit the option after `-f` to be one of the other shape names from Step 1.
+3. Add the command `echo Done` below the animal command.
+4. Save the file.
 
-Open 'awesome.sh' and add "echo AWESOME!" (no quotes) after the grep command and save the file.
-
-We're going to come back and use this file in just a bit.
+We're going to come back and use this file shortly.
 
 ---
 
@@ -815,7 +830,7 @@ echo $PATH
 
 This will print out the value of the `PATH` environment variable. Notice that a list of directories, separated by colon characters, is listed. These are the places the shell looks for programs to run. If your program is not in this list, then an error is printed. The shell ONLY checks in the places listed in the `PATH` environment variable.
 
-Remember that file where we wrote our favorite grep command in there? Since we like it so much, we might want to run it again, or even all the time. Instead of writing it out every time, we can just run it as a script. Let's try to run that script:
+Remember that file where we wrote that cute animal command? If we want to see that animal, we need to run it. Usually scripts will contain things that you need to run often -- I don't know about you, but I need to see cute animals talking all the time! Let's try to run that script:
 
 ```bash
 awesome.sh
@@ -848,7 +863,7 @@ Now you should have seen some output, and of course, it's AWESOME! Congratulatio
 
 **EXERCISE**
 
-1. In the `data` directory, use `nano` to write a script called `quickpeek.sh` that:
+1. In the `rnaseq` directory, use `nano` to write a script called `quickpeek.sh` that:
     * Runs `head` on all the fastq files in the current directory
     * Runs `wc` on all the fastq files
     * `echo`s "Done!" when finished.
@@ -856,148 +871,6 @@ Now you should have seen some output, and of course, it's AWESOME! Congratulatio
 3. Run the program.
 
 ---
-
-## Simple parallel computing with `find` and `parallel`
-
-We've learned how to do a few things already using wildcards. For instance, we extracted all the fastq files with
-
-```bash
-gunzip *.fastq
-```
-
-which the shell interpreted the same as:
-
-```bash
-gunzip ctl1.fastq  ctl2.fastq	ctl3.fastq  uvb1.fastq	uvb2.fastq  uvb3.fastq
-```
-
-But what if we wanted to do something more complicated on lots of files, and do it in parallel across multiple processors? For example, what if we wanted to pull out all the reads containing the "GATTACA" motif from each file independently and write those all to separate files for each read?
-
-We can't just do something like:
-
-```bash
-grep GATTACA *.fastq > gattacareads.txt
-```
-
-Because that would write one big file with all the GATTACA reads from all the files smashed together. What we want to do is something like this:
-
-```
-grep GATTACA ctl1.fastq > ctl1.fastq.gattaca.txt
-grep GATTACA ctl2.fastq > ctl2.fastq.gattaca.txt
-grep GATTACA ctl3.fastq > ctl3.fastq.gattaca.txt
-grep GATTACA uvb1.fastq > uvb1.fastq.gattaca.txt
-grep GATTACA uvb2.fastq > uvb2.fastq.gattaca.txt
-grep GATTACA uvb3.fastq > uvb3.fastq.gattaca.txt
-```
-
-Now, for one, that's a lot of typing. What if you had 100 fastq files you wanted to do this with? And secondly, while this is example data and things run pretty quickly, what if each of these files were 10s of gigabytes, having millions of reads in each? Each `grep` command would take a few minutes to run. But most modern computers have multiple processors or cores in them, and we should be able to take advantage of that and send out each of those processes to a separate core to be done in parallel.
-
-### find
-
-The UNIX `find` command is a simple program can be used to find files based on arbitrary criteria. Go back up to the parent `rnaseq-1day` directory, and type this command:
-
-```bash
-find .
-```
-
-That prints out all the files and directories, and everything in those directories, recursively. Let's print out only files with the `-type f` option:
-
-```bash
-find . -type f
-```
-
-Now, let's limit the search to find only fastq files with the `-name` option. Here, we just pass in quotes the pattern to match. Here it's anything that ends with `.fastq`.
-
-```bash
-find . -name "*.fastq"
-```
-
-That will find anything ending in `.fastq` living in any directory down from where we are currently standing on the filesystem.
-
-### find | parallel
-
-Now, what if we wanted to actually do something with those files? There are a few ways to do this, but one we're going to use today involves using a program called `parallel`. If you run the `find` command and pipe the output of `find` into `parallel`, you can run arbitrary commands on the input files you found. Let's do a `--dry-run` so `parallel` will *only show us what would have been run*. Let's run a fake example:
-
-```bash
-#first find the files
-find . -name "*.fastq"
-# then pipe to parallel with dry run
-find . -name "*.fastq" | parallel --dry-run "dowhatever {}"
-```
-
-```
-dowhatever ./data/ctl1.fastq
-dowhatever ./data/ctl2.fastq
-dowhatever ./data/ctl3.fastq
-dowhatever ./data/uvb1.fastq
-dowhatever ./data/uvb2.fastq
-dowhatever ./data/uvb3.fastq
-```
-
-* First, we're running the same `find` command as before. Remember, this prints out the path for all the fastq files it found, with the path relative to where we ran the find command.
-* Next, we're calling the `parallel` program with the `--dry-run` option. This tells `parallel` to not actually run anything, but to just tell us what it _would_ do.
-* Next, we have the stuff we want to run in parallel inside the quotes.
-* The open/closed curly braces `{}` is a special placeholder for `parallel`, which assumes the values of whatever was passed in on the pipe. In this example, each of the fastq files found by `find` will take the place of `{}` wherever it's found.
-
-Let's try one for real. Let's get the word count of all the fastq files in parallel.
-
-```bash
-# First find the files
-find . -name "*.fastq"
-
-# Next do a dry-run to see what would be run
-find . -name "*.fastq" | parallel --dry-run "wc {}"
-
-# Finally, run the commands in parallel
-find . -name "*.fastq" | parallel "wc {}"
-```
-
-What if we wanted to do something like search for a particular nucleotide sequence like "GATTACA" inside of each file, pull out those sequences, and write those to a separate results file for each input?
-
-```bash
-# First find the files
-find . -name "*.fastq"
-
-# Next do a dry-run to see what would be run
-find . -name "*.fastq" | parallel --dry-run "grep GATTACA {} > {}.gattaca.txt"
-
-# Finally, run the commands in parallel
-find . -name "*.fastq" | parallel "grep GATTACA {} > {}.gattaca.txt"
-```
-
-When you do the dry run, you'll get something like that looks like this:
-
-```bash
-grep GATTACA ./data/ctl1.fastq > ./data/ctl1.fastq.gattaca.txt
-grep GATTACA ./data/ctl2.fastq > ./data/ctl2.fastq.gattaca.txt
-grep GATTACA ./data/ctl3.fastq > ./data/ctl3.fastq.gattaca.txt
-grep GATTACA ./data/uvb1.fastq > ./data/uvb1.fastq.gattaca.txt
-grep GATTACA ./data/uvb2.fastq > ./data/uvb2.fastq.gattaca.txt
-grep GATTACA ./data/uvb3.fastq > ./data/uvb3.fastq.gattaca.txt
-```
-
-These are the commands that _would be run_ in `parallel` if you didn't use the `--dry-run` flag. Now, if we go back and re-run that command without the `--dry-run` flag.
-
----
-
-**EXERCISE**
-
-1. `cd` into the `data` directory and take a look at what files were created.
-2. Open up one of the new files with `less` and use the `/` key to search for the "GATTACA" motif. Does it actually occur on every line?
-3. Use `rm` to delete all the files ending with `.gattaca.txt`.
-
----
-
-## Installing software
-
-There are a few different ways to install software. We're using an Ubuntu Linux distribution, and Ubuntu has a very nice software package management system called apt. You can read more about it [at the online documentation](https://help.ubuntu.com/community/AptGet/Howto). For what we'll do later on we'll need java, which isn't installed by default. If we try running `which java`, we'll see nothing is returned. If we try running `java`, Ubuntu will suggest a packages that we might try downloading to get java enabled. We'll want the default Java Runtime Environment. To install software we need to temporarily elevate our permissions to the level of the "super user". We do this temporarily by prefacing any command we want to run as super user with the command `sudo`. Let's install Java.
-
-```bash
-which java
-java
-sudo apt-get install default-jre
-```
-
 
 
 ## Where can I learn more about the shell?
