@@ -557,7 +557,7 @@ tail -n 4 ctl1.fastq
 
 I'm about to teach you the only word you will ever need to say to convince everyone that you are a command-line bad ass. Are you ready?
 
-**grep**
+**grep**     *global regular expression parser* (?)
 
 We showed a little how to search within a file using `less`.
 
@@ -643,38 +643,51 @@ wc gattaca-reads.txt
 
 But using the pipe you didn't need to create the intermediate file. Pipes are really powerful for stringing together these different commands, so you can do whatever you need to do.
 
-The philosophy behind these command line programs is that none of them really do anything all that impressive. BUT when you start chaining them together, you can do some really powerful things really efficiently. If you want to be proficient at using the shell, you must learn to become proficient with the pipe and redirection operators.
+The philosophy behind these command line programs is that none of them really do anything all that impressive. BUT when you start chaining them together, you can do some really powerful things really efficiently. If you want to be proficient at using the shell, you must learn to become proficient with the pipe (heh) and redirection operators.
 
-For example, draw a cow saying the largest word in the english language that contains the word "purple":
+For example, draw a cow saying the largest word in the available dictionary of the english language that contains the word "coin":
 
 ```bash
 # Read in the system's dictionary.
 cat /usr/share/dict/words
-# grep for "purple"
-cat /usr/share/dict/words | grep purple
+# grep for "coin"
+cat /usr/share/dict/words | grep coin
 # count letters in each word
-cat /usr/share/dict/words | grep purple | awk '{print length($1), $1}'
+cat /usr/share/dict/words | grep coin | awk '{print length($1), $1}'
 # numeric sort
-cat /usr/share/dict/words | grep purple | awk '{print length($1), $1}' | sort -n
+cat /usr/share/dict/words | grep coin | awk '{print length($1), $1}' | sort -n
 # take the last line
-cat /usr/share/dict/words | grep purple | awk '{print length($1), $1}' | sort -n | tail -n 1
+cat /usr/share/dict/words | grep coin | awk '{print length($1), $1}' | sort -n | tail -n 1
 # cut out the second field (-f 2) if the file were delimited by a space (-d " ")
-cat /usr/share/dict/words | grep purple | awk '{print length($1), $1}' | sort -n | tail -n 1 | cut -d " " -f 2
+cat /usr/share/dict/words | grep coin | awk '{print length($1), $1}' | sort -n | tail -n 1 | cut -d " " -f 2
 # make the cow say it
-cat /usr/share/dict/words | grep purple | awk '{print length($1), $1}' | sort -n | tail -n 1 | cut -d " " -f 2 | cowsay
+cat /usr/share/dict/words | grep coin| awk '{print length($1), $1}' | sort -n | tail -n 1 | cut -d " " -f 2 | cowsay
+#make a dragon say it
+cat /usr/share/dict/words | grep coin | awk '{print length($1), $1}' | sort -n | tail -n 1 | cut -d " " -f 2 | cowsay -f dragon
 ```
 
 This program piped together 7 UNIX programs (`cat`, `grep`, `awk`, `sort`, `tail`, `cut`, `cowsay`), each of which does a very small job on its own, and strung them together to do something pretty powerful (as silly as it may be).
 
 ```
- _____________
-< unimpurpled >
- -------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
+ _______________________ 
+< mechanicointellectual >
+ ----------------------- 
+      \                    / \  //\
+       \    |\___/|      /   \//  \\
+            /0  0  \__  /    //  | \ \    
+           /     /  \/_/    //   |  \  \  
+           @_^_@'/   \/_   //    |   \   \ 
+           //_^_/     \/_ //     |    \    \
+        ( //) |        \///      |     \     \
+      ( / /) _|_ /   )  //       |      \     _\
+    ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+  (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+ (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+ (( /// ))      `.   {            }                   /      \  \
+  (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+             ///.----..>        \             _ -~             `.  ^-`  ^-_
+               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+                                                                  /.-~
 ```
 
 ### Creating, moving, copying, and removing
