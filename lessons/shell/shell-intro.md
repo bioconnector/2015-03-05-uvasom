@@ -267,7 +267,9 @@ ls small-0<tab><tab>
 ```
 
 When you hit the first tab, nothing happens. The reason is that there are multiple directories in the directory which start with `small-0`. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.
+
 You'll notice that the terminal is now waiting for you to finish typing the name of the file, but we want to move forward without doing anything with any of those files. In order to get back to a new line, type `ctrl + c`. This works no matter what you are doing on the command line - if you want to stop doing what you are doing, hit `ctrl + c`.
+
 **Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
 
 ### Full vs. Relative Paths
@@ -283,16 +285,16 @@ which is the full name of your home directory. This tells you that you are in a 
 Now enter the following command, and don't forget to use tab completion to help you along:
 
 ```bash
-cd /home/swc/workshops/lessons/shell/data/hidden
+ls /home/swc/workshops/lessons/shell/data/hidden
 ```
 
-This jumps to `hidden`. Now go back to the home directory (`cd`). We saw earlier that the command:
+This shows us the contents of `hidden`. Now lets look at what we get when we give the command:
 
 ```bash
-cd workshops/lessons/shell/data/hidden
+ls workshops/lessons/shell/data/hidden
 ```
 
-had the same effect - it took us to the `hidden` directory. But, instead of specifying the full path, we specified a *relative path*. In other words, we specified the path relative to our current directory. A full path always starts with a `/`. A relative path does not.
+And Look! We get the same result! But, instead of specifying the full path, we specified a *relative path*. In other words, we specified the path relative to our current directory. A full path always starts with a `/`. A relative path does not.
 
 A relative path is like getting directions from someone on the street. They tell you to "go right at the Stop sign, and then turn left on Main Street". That works great if you're standing there together, but not so well if you're trying to tell someone how to get there from another country. A full path is like GPS coordinates. It tells you exactly where something is no matter where you are right now.
 
