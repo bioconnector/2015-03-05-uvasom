@@ -83,7 +83,7 @@ Let's look at what I've put in your home directory:
 ls
 ```
 
-`ls` stands for 'list' and it lists the contents of a directory. More on `ls` in a second. You should see a *workshops* directory. We are going to move into that directory.
+`ls` stands for 'list' and it lists the contents of a directory. More on `ls` in a second. You should see a **workshops** directory. We are going to move into that directory.
 
 ```bash
 cd workshops
@@ -159,15 +159,15 @@ As you've already just seen, you can move around in different directories or fol
 
 When you're working with bioinformatics programs, you're working with your data and it's key to be able to have that data in the right place and make sure the program has access to the data. Many of the problems people run in to with command line bioinformatics programs is not having the data in the place the program expects it to be.
 
-Let's draw out what we just did, and some of the other files and folders we could have clicked on.
+We've given you a handout showing a few of the folders in the directory structure. This is **not** comprehensive, but it might help you visualize what's happening. Looking at the handout, we can see that there were several other files and folders we could have explored.
 
 This is called a hierarchical file system structure, like an upside down tree with root (/) at the base that looks like this.
 
-![Unix](img/unix_filesystem.png)
+![Unix](img/VM_directoryTree.png)
 
 That (/) at the base is often also called the 'top' level.
 
-When you are working at your computer or log in to a remote computer, you are on one of the branches of that tree, your home directory: **/home/username**.
+When you are working at your computer or log in to a remote computer, you are on one of the branches of that tree, your home directory: **/home/username**. In this case our username is **swc**, but, for example, if I log-on to the UVa server, it would be my UVa computing ID. As I mentioned previously, this starting directory, which bears your name, is your 'home base' within the directory structure. It's where a new terminal will open.
 
 If we type `cd` by itself:
 
@@ -175,7 +175,7 @@ If we type `cd` by itself:
 cd
 ```
 
-This puts you in your home directory. That's **/home/username**
+This puts you in your home directory. That's **/home/swc**
 
 ---
 
