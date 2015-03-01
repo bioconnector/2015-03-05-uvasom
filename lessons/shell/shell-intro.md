@@ -418,11 +418,11 @@ Do each of the following using a single `ls` command without navigating to a dif
 
 ### Command History
 
-You can easily access previous commands. Hit the up arrow. Hit it again. You can step backwards through your command history. The down arrow takes your forwards in the command history.
+Sometimes I want to repeat a command that I typed previously. I'm obviously much too lazy to re-type a really long command. Luckily, you can easily access previous commands. Hit the up arrow. Hit it again. You can step backwards through your command history. The down arrow takes your forwards in the command history.
 
 Control-C will cancel the command you are writing, and give you a fresh prompt.
 
-You can also review your recent commands with the `history` command to see a numbered list of commands you've run.
+If the command you want to repeat is far back, it starts to feel like work to press the up arrow so much. Luckily, you can also review your recent commands with the `history` command to see a numbered list of commands you've run.
 
 ```bash
 history
