@@ -71,25 +71,35 @@ Web sites where you can see what the different components of a shell command are
 
 ### Moving around and listing files
 
-We'll start out by moving around the file system and listing files. Today we're going to go through using the command line. These commands are in the README.md file and on your handout (fixme).
+We'll start out by moving around the file system and listing files. Today we're going to go through using the command line. These commands are on your handout (fixme).
 
-Let's go in to that directory we just downloaded:
+Opening the terminal made it look a lot like we are in the Matrix, but it doesn't seem to be much more than a black screen, which is a little intimidating.
+Every time you open a terminal, it will put you in the same starting directory, a *home* directory. A *directory* is the same thing as a *folder*. We just call folders *directories* in the Linux/UNIX world.
+I may slip up now and then and say folder, so I apologize in advance.
+Let's look at what I've put in your home directory:
 
-```bash
-cd workshops
-```
-
-`cd` stands for 'change directory'. A *directory* is the same thing as a *folder*. We just call folders *directories* in the Linux/UNIX world. Here we just entered the workshops directory. If we were doing this on a graphical shell we would have double-clicked on a little folder icon. It's the same idea.
-
-In this directory, there should be some things we just downloaded. Let's check. Type:
 
 ```bash
 ls
 ```
 
-`ls` stands for 'list' and it lists the contents of a directory. This woudld be what you would see in the folder if you were doing this graphically on a desktop.
+`ls` stands for 'list' and it lists the contents of a directory. More on `ls` in a second. You should see a *workshops* directory. We are going to move into that directory.
 
-Blue things are directories, white things are files.
+```bash
+cd workshops
+```
+
+`cd` stands for 'change directory'. Here we just entered the workshops directory. If we were doing this on a graphical shell we would have double-clicked on a little folder icon. It's the same idea.
+
+In this directory, there should be some things. Let's check. Type:
+
+```bash
+ls
+```
+
+Again, `ls` stands for 'list' and it lists the contents of a directory. This woudld be what you would see in the folder if you were doing this graphically on a desktop.
+
+Blue things are directories, white things are files. It looks like we have two directories in this folder.
 
 Now, let's go look in the 'data' directory in the 'shell' lesson. It's nested a few directories deep. To get to it, let's enter and list each directory like so:
 
