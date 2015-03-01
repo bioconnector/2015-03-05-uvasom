@@ -181,7 +181,7 @@ This puts you in your home directory. That's **/home/swc**
 
 **EXERCISE**
 
--	Using `cd` and `ls`, go in to the 'workshops/shell/data' directory and list its contents.
+-	Using `cd` and `ls`, go in to the 'workshops/lessons/shell/data' directory and list its contents.
 -	How many files, how many directories and how many programs are there?
 
 ---
@@ -230,7 +230,7 @@ The `cd` command works the same way. Try entering:
 
 ```bash
 cd
-ls workshops/lessons/shell/data/hidden
+cd workshops/lessons/shell/data/hidden
 ```
 
 and you will jump directly to `hidden` without having to go through the intermediate directories.
@@ -267,7 +267,7 @@ ls small-0<tab><tab>
 ```
 
 When you hit the first tab, nothing happens. The reason is that there are multiple directories in the directory which start with `small-0`. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.
-
+You'll notice that the terminal is now waiting for you to finish typing the name of the file, but we want to move forward without doing anything with any of those files. In order to get back to a new line, type `ctrl + c`. This works no matter what you are doing on the command line - if you want to stop doing what you are doing, hit `ctrl + c`.
 **Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
 
 ### Full vs. Relative Paths
@@ -275,15 +275,15 @@ When you hit the first tab, nothing happens. The reason is that there are multip
 The `cd` command takes an argument which is the directory name. Directories can be specified using either a *relative path* or a *full path*. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the `pwd` command and you should see:
 
 ```
-/home/username
+/home/swc
 ```
 
-which is the full name of your home directory. This tells you that you are in a directory called `username`, which sits inside a directory called `home` which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory*. So, to summarize: `username` is a directory in `home` which is a directory in `/`.
+which is the full name of your home directory. This tells you that you are in a directory called `swc`, which sits inside a directory called `home` which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory*. So, to summarize: `swc` is a directory in `home` which is a directory in `/`.
 
-Now enter the following command:
+Now enter the following command, and don't forget to use tab completion to help you along:
 
 ```bash
-cd /home/bioinfo/workshops/lessons/shell/data/hidden
+cd /home/swc/workshops/lessons/shell/data/hidden
 ```
 
 This jumps to `hidden`. Now go back to the home directory (`cd`). We saw earlier that the command:
