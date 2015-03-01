@@ -23,6 +23,14 @@ Learn more:
 -	What is it good for?
 -	Where are resources where I can learn more? (because the shell is awesome)
 
+### Open the Virtual Machine
+
+In order to avoid any operating system issues and to make sure we are all working on the same data, we will use a virtual machine.
+We asked you to install VirtualBox on your computer and a to download a machine image. If you have not already done so, please open VirtualBox and import that machine image.
+If you did *not* download the machine image prior to this class, please put up a *red* sticky note so that some one can bring you a flash drive with the image.
+
+
+
 ## What is the shell?
 
 The *shell* is a program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
@@ -41,21 +49,9 @@ Have 10,000,000 files to rename, read in, analyze, and visualize? It's easy to a
 
 
 ### How to access the shell
+There are ways to access the shell on each operating system. Because some operating systems (Windows) have more trouble, we are using a Linux machine within the virtual image in order to learn how to use the shell. Should you wish to use it on your personal machine, please ask after class.
 
-You access the shell through a program called a Terminal. We're going to use a terminal to connect to the shell of a remote computer. The terminal program is built-in on Mac and Linux. For Windows, you'll have to download a separate program called a terminal emulator that will allow you to connect to remote computers.
-
-#### Mac
-
-On Mac the shell is available through Terminal:
-
-**Applications -> Utilities -> Terminal**
-
-Go ahead and drag the Terminal application to your Dock for easy access.
-
-#### Windows
-
-On Windows machines we'll be using a terminal emulator called [PuTTY](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
-
+You access the shell through a program called a Terminal. You can see the terminal program icon in the top left corner of your screen. Please open a terminal window.
 
 ### More resources on the shell
 
@@ -72,26 +68,6 @@ Web sites where you can see what the different components of a shell command are
 
 ## Shell basics
 
-### Get some data files to work with
-
-We will spend most of our time learning about the basics of the shell by manipulating some experimental data. If you aren't using the virtual machine image you'll need to download the data for the tutorial. For this you'll need internet access, because you're going to get it off the web.
-
-Open the shell and type the commands:
-
-```bash
-cd
-git clone https://github.com/bioconnector/workshops.git
-```
-
-This command will grab all of the data needed for this workshop. It's using something called git that's used for version control, but we won't talk about that here.
-
-If you're already using the machine image you might need to update things.
-
-```bash
-cd workshops
-git pull
-cd
-```
 
 ### Moving around and listing files
 
