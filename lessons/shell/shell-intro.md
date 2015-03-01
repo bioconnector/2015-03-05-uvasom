@@ -462,7 +462,7 @@ cd workshops/lessons/intro-r/data
 
 We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?
 
-The easiest way to examine a file is to print out all of the contents using the program `cat`, which is short for 'concatenate'. Enter the following command:
+There are a multitude of programs you can use to look at your files -- we are only going to look at a couple of them, but there are plenty more. The easiest way to examine a file is to print out all of the contents using the program `cat`, which is short for 'concatenate'. Enter the following command:
 
 ```bash
 cat car-speeds.csv
@@ -482,18 +482,24 @@ We did sequencing, and what we have here are just reads that came from a 100 MB 
 
 ---
 
-Make sure we're in the right place for the next set of the lessons. We want to be in the intro-r data directory (`workshops/lessons/intro-r/data`). Check if you're there with `pwd` and if not navigate there. One way to do that would be
+
+Make sure we're in the right place for the next set of the lessons. We want to be in the rnaseq directory  (`workshops/lessons/shell/data/rnaseq`). Take a second to navigate there. One way to do that would be
 
 ```bash
-cd ~/workshops/lessons/intro-r/data
+cd ~/workshops/lessons/shell/data/rnaseq
 ```
 
-`cat` is a terrific program, but when the file is really big, it can be annoying to use.
-
-The program, `less`, is useful when files are big and you want to be able to scroll through them.
+`cat` is a terrific program, but when the file is really big, it can be annoying to use. For example, try:
 
 ```bash
-less car-speeds.csv
+cat ctl1.fastq
+```
+Wow. That looks like it could go on forever. If you don't want to watch it scroll by forever type `Control + C` to stop it.
+The program, `less`, is useful when files are big and you want to be able to scroll through them.
+
+
+```bash
+less ctl1.fastq
 ```
 
 `less` opens the file, and lets you navigate through it. The commands
@@ -510,34 +516,41 @@ are identical to the `man` program.
 | G     | go to the end       |
 | q     | quit                |
 
-`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching `car-speeds.csv` for the word of "Blue". If you hit "/" then "enter", `less` will just repeat the previous search. `less` searches from the current location and works its way forward. If you are at the end of the file and search for "Blue", `less` will not find it. You need to go to the beginning of the file with the `g` key in less, and start the search from there.
+`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching `ctl1.fastq` for the sequence "GATTACA". If you hit "/" then "enter", `less` will just repeat the previous search. `less` searches from the current location and works its way forward. If you are at the end of the file and search for "GATTACA", `less` will not find it. You need to go to the beginning of the file with the `g` key in less, and start the search from there.
 
 Remember, the `man` program actually uses `less` internally and therefore uses the same commands, so you can search documentation using "/" as well!
 
 There's another way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
 
-In order to look at the first 10 lines of a file I can use:
+In order to look at the first 10 lines of a file we can use:
 ```bash
-head car-speeds.csv
+head ctl1.fastq
 ```
 In genomics, I work with files that are much much to big to open, but often I need to see the first line in order to learn my column names.
 
 I can use the `-n` flag, followed by a number, to print only the first row of the file, like so:
 
 ```bash
-head -n1 car-speeds.csv
+head -n1 ctl1.fastq
 ```
+Because of the way FASTQ files are formatted, each read is given in a group of four rows. So, to look at the first read we would type:
+
+
+```bash
+head -n4 ctl1.fastq
+```
+
 Just as `head` prints the first 10 lines of the file, there's another program that will print only the last 10 lines of the file. Can you guess what it's called?
 
 ```bash
-tail car-speeds.csv
+tail ctl1.fastq
 ```
 There are various reasons why you might want to take a quick look at the end of your file. Among others, you might want to make sure that the table is complete. If something got messed up during data production, you might have uneven or incomplete columns.
-If you want to see only the last 4 lines of the file, you can use the `-n` option.
+If you want to see only the last 4 lines of the file, in this case the last read, you can use the `-n` option.
 
 
 ```bash
-tail -n 4 car-speeds.csv
+tail -n 4 ctl1.fastq
 ```
 
 ### Searching files
@@ -548,7 +561,7 @@ I'm about to teach you the only word you will ever need to say to convince every
 
 We showed a little how to search within a file using `less`.
 
-We can search within files without even opening them, using `grep`. Grep is a command-line utility for searching plain-text data sets for lines matching a string or regular expression.
+Using `grep` we can search within files without even opening them. Grep is a command-line utility for searching plain-text data sets for lines matching a string or regular expression.
 
 Let's find all the lines in ctl1.fastq that contain the sequence motif "GATTACA."
 
