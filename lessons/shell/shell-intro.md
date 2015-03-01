@@ -15,7 +15,6 @@ Learn more:
 
 -	What is the shell?
 -	How do you access it?
-- Connecting to cloud computing resources
 -	How do you use it?
   -	Getting around the Unix file system
   -	looking at files
@@ -70,11 +69,7 @@ Web sites where you can see what the different components of a shell command are
 - [commandlinefu.com](http://www.commandlinefu.com)
 
 
-## Connecting to cloud computing resources
 
-Cloud computing means different things to different people. There's Software-as-a-Service (Saas) like Gmail, Facebook, etc., that most people think of when they think of cloud computing. Here, we're strictly talking about Infrastructure-as-a-Service (IaaS). That is, we're using (or *renting*) computing infrastructure that we don't *own*.
-
-We'll cover in class how to start and connect to an Amazon Web Services EC2 instance. ***It's essential that you stop or terminate any running AWS instances after you're done with them***.
 
 <!--
 - fixme: add content about amazon on separate 00-lesson?
