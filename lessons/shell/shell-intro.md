@@ -134,9 +134,9 @@ So, we can see that we have several files, directories and a program. Great!
 
 ### Options
 
-Most programs take additional options that control their exact behavior. For example, `-F` and `-l` are options for `ls`. The `ls` program, like many programs, take a lot of options. But how do we know what the options are to particular commands?
+Most programs take additional options, or *flags*, that control their exact behavior. For example, `-F` and `-l` are options for `ls`. The `ls` program, like many programs, take a lot of options. But how do we know what the options are to particular commands?
 
-Most commonly used shell programs have a manual. Let's open the manual page for `ls`.
+Most commonly used shell programs have a manual, colloquially known as a *man page*. The joke here is so obvious that I probably don't need to make it, so, just know that once you know your Linux Kung-Fu you will be able to instead call up your *wo-man* page. In the meantime, let's open the manual page for `ls`.
 
 You can access the manual using the `man` program.
 
@@ -146,9 +146,12 @@ man ls
 
 Space key goes forward  
 Or use the arrow keys to scroll up and down.  
-When you are done reading, just hit `q` to quit.
 
-Programs that are run from the shell can get extremely complicated. To see an example, open up the manual page for the `find` program. No one can possibly learn all of these arguments, of course. So you will probably find yourself referring back to the manual page frequently.
+When you are done reading, just hit `q` to quit. This can be a little confusing, so please let me know if you are having trouble leaving the `man` page.
+
+
+Programs that are run from the shell can get extremely complicated, and each program can have dozens of flags. No one can learn all of them,  So, please don't stress out if you can't remember the arguments we discuss. You can always pull up the `man` page to look them up. I know that's what I do.
+
 
 ### The Unix directory file structure (a.k.a. where am I?)
 
