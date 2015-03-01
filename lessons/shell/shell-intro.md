@@ -253,22 +253,22 @@ cd
 cd w<tab>
 ```
 
-The shell will fill in the rest of the directory name for "workshops". Now go to `workshops/lessons/rnaseq-1day/data`
+The shell will fill in the rest of the directory name for "workshops". Now go to `workshops/lessons/intro-r/data/`
 
 ```
 cd
-cd wo<tab>le<tab>rna<tab>da<tab>
+cd wo<tab>le<tab>int<tab>da<tab>
 ```
 
-Now type `ls uvb` and hit tab twice.
+Now type `ls small-0` and hit tab twice.
 
 ```
-ls uvb<tab><tab>
+ls small-0<tab><tab>
 ```
 
-When you hit the first tab, nothing happens. The reason is that there are multiple directories in the home directory which start with `uvb`. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.
+When you hit the first tab, nothing happens. The reason is that there are multiple directories in the directory which start with `small-0`. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.
 
-Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
+**Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
 
 ### Full vs. Relative Paths
 
