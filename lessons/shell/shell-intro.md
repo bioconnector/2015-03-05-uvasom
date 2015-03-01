@@ -246,7 +246,9 @@ Try finding the 'anotherfile.txt' file without changing directories.
 
 ### HUGE Shortcut: Tab Completion
 
-Navigate to the home directory. Typing out directory names can waste a lot of time. When you start typing out the name of a file or directory, then hit the tab key, the UNIX shell will try to fill in the rest of the directory name. For example, enter:
+Navigate to the home directory. 
+
+Computer Scientists are *really lazy*, and all of this typing of directory names starts to feel like work. Luckily, the Computer Scientists who built the UNIX system anticipated our pain. When you start typing out the name of a file or directory, then hit the tab key, the UNIX shell will try to fill in the rest of the directory name. For example, enter:
 
 ```
 cd
@@ -367,9 +369,9 @@ We did sequencing, and what we have here are just reads that came from a 100 MB 
 
 #### Wild cards
 
-Navigate to the `workshops/lessons/rnaseq-1day/data` directory from your home. This directory contains our FASTQ files and some other ones we'll need for analyses. If we type `ls`, we will see that there are several files in there. Some of the end with .fastq.gz. These are compressed fastq files.
+Navigate to the `workshops/lessons/shell/data/rnaseq/` directory from your home. This directory contains FASTQ files that are used during RNA-Seq. If we type `ls`, we will see that there are several files in there. Some of the end with .fastq.gz. That extra `.gz` extension tells us that these are compressed  files.
 
-The `*` character is a shortcut for "everything". Thus, if you enter `ls *`, you will see all of the contents of a given directory.
+The `*` character is a shortcut for "everything". Thus, if you enter `ls *`, you will see all of the contents of a given directory. But what if you only want to see a certain subset of files in the directory?
 
 ```bash
 ls *fastq.gz
@@ -383,7 +385,7 @@ ls /usr/bin/*.sh
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`.
 
-If we wanted to list just the controls or just the uvb-treated samples, we could do this:
+If we wanted to list just the files whose names begin with certains letters, we could do this:
 
 ```bash
 ls ctl*
@@ -392,11 +394,14 @@ ls uvb*
 
 So how does this actually work? Well...when the shell sees a word that contains the `*` character, it automatically looks for filenames that match the given pattern. In this case, it identified 3 such files. Then, it replaced the `ctl*` with the list of files, separated by spaces.
 
-Because we'll use these files later, let's go ahead and extract or uncompress these files. To compres a text file we would use `gzip`. To extract, we'll use `gunzip`. Let's extract all the files that end in `.gz`. This will extract both the fastq files and the counts.txt file as well:
+This wild card is extremely useful for lazy computer scientists. For example, what if I wanted to extract all of these compressed files? The files were zipped using a program called `gzip` and they can be unzipped with a program called `gunzip` (pronunciation?) Instead of unzipping them one by one, how about we use:
+
 
 ```bash
 gunzip *.gz
+ls
 ```
+When we look at the contents of the folder, we see that all of the `.gz` extensions are gone!
 
 Now, time for some more practice with wildcards.
 
