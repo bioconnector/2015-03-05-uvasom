@@ -477,8 +477,8 @@ We did sequencing, and what we have here are just reads that came from a 100 MB 
 
 **EXERCISE**
 
--	Print out the contents of the `workshops/lessons/intro-r/small-01.csv` file. What does this file contain?
--	Without changing directories, use one short command to print the contents of all of the files in the `~/workshops/shell/data/words` directory.
+-	Print out the contents of the `small-01.csv` file. What does this file contain?
+-	Without changing directories, use one short command to print the contents of all of the files in the `~/workshops/lessons/shell/data/words` directory.
 
 ---
 
