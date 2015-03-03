@@ -336,7 +336,24 @@ Then enter the command:
 ls ~
 ```
 
-This prints the contents of your home directory, without you having to type the full path. In this case we were only one directory away, but if we had been all the way down in the hidden folder, we wouldn't want to climb all the way back home just to have a peek at the contents.
+This prints the contents of your home directory, without you having to type the full path. 
+In this case we were only one directory away, but if we had been all the way down in the hidden folder, 
+we wouldn't want to climb all the way back home just to have a peek at the contents.
+
+The `~` shortcut can also be used to shorten your full paths.  Maybe we want to write a command that will work no matter where we are, but we are still being lazy)
+and we wanted to look inside the lessons folder. Instead of typing:
+
+
+```bash
+ls /home/swc/workshops/lessons/
+```
+
+
+we can type: 
+
+```bash
+ls ~/workshops/lessons/
+```
 
 #### .. Double Dot
 The shortcut `..`, which I call 'double dot' or 'dot dot' always refers to the directory above your current directory.
