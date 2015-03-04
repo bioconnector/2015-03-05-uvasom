@@ -234,7 +234,10 @@ Let's go on a file hunt. Move around in the "shell/data/hidden" directory and tr
 
 ### Examining the contents of other directories
 
-By default, the `ls` commands lists the contents of the working directory (i.e. the directory you are in). You can always find the directory you are in using the `pwd` command. However, you can also give `ls` the names of other directories to view. Navigate to the home directory if you are not already there using `cd` by itself, then `ls` the contents of the "workshops/lessons/shell" directory:
+By default, the `ls` commands lists the contents of the working directory (i.e. the directory you are in). 
+Handily enough, however, you can also give `ls` the names of other directories to view. 
+Navigate to the home directory if you are not already there using `cd` by itself, 
+then `ls` the contents of the "workshops/lessons/shell" directory:
 
 ```bash
 cd
@@ -251,7 +254,9 @@ cd
 cd workshops/lessons/shell/data/hidden
 ```
 
-and you will jump directly to `hidden` without having to go through the intermediate directories.
+and you will jump directly to `hidden` without having to go through the intermediate directories. 
+This is where you really start seeing the advantages of using the shell. In a graphical interface, 
+I would have had to climb down through the tree level by level, but in the shell, I can jump directly there with one line.
 
 ---
 
