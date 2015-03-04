@@ -271,7 +271,10 @@ Try finding the 'anotherfile.txt' file without changing directories.
 
 Navigate to the home directory. 
 
-Computer Scientists are *really lazy*, and all of this typing of directory names starts to feel like work. Luckily, the Computer Scientists who built the UNIX system anticipated our pain. When you start typing out the name of a file or directory, then hit the tab key, the UNIX shell will try to fill in the rest of the directory name. For example, enter:
+Computer Scientists are *really lazy*, and all of this typing of directory names starts to feel like work. 
+Luckily, the Computer Scientists who built the UNIX system anticipated our pain. 
+When you start typing out the name of a file or directory, then hit the tab key, 
+the Linux shell will try to fill in the rest of the directory name. For example, enter:
 
 ```
 cd
@@ -291,9 +294,15 @@ Now type `ls small-0` and hit tab twice.
 ls small-0<tab><tab>
 ```
 
-When you hit the first tab, nothing happens. The reason is that there are multiple directories in the directory which start with `small-0`. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.
+When you hit the first tab, nothing happens. The reason is that there are 
+multiple directories in the directory which start with `small-0`. 
+Thus, the shell does not know which one to fill in. When you hit tab again, 
+the shell will list the possible choices.
 
-You'll notice that the terminal is now waiting for you to finish typing the name of the file, but we want to move forward without doing anything with any of those files. In order to get back to a new line, type `ctrl + c`. This works no matter what you are doing on the command line - if you want to stop doing what you are doing, hit `ctrl + c`.
+You'll notice that the terminal is now waiting for you to finish typing the name of the file, 
+but we want to move forward without doing anything with any of those files. 
+In order to get back to a new line, type `ctrl + c`. 
+This works no matter what you are doing on the command line - if you want to stop doing what you are doing, hit `ctrl + c`.
 
 **Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
 
