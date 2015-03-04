@@ -143,9 +143,12 @@ So, we can see that we have several files, directories and a program. Great!
 
 ### Options
 
-Most programs take additional options, or *flags*, that control their exact behavior. For example, `-F` and `-l` are options for `ls`. The `ls` program, like many programs, take a lot of options. But how do we know what the options are to particular commands?
+Most programs take additional options, or *flags*, that control their exact behavior. For example, `-F` and `-l` are options for `ls`. 
+The `ls` program, like many programs, take a lot of options. But how do we know what the options are to particular commands?
 
-Most commonly used shell programs have a manual, colloquially known as a *man page*. The joke here is so obvious that I probably don't need to make it, so, just know that once you know your Linux Kung-Fu you will be able to instead call up your *wo-man* page. In the meantime, let's open the manual page for `ls`.
+Most commonly used shell programs have a manual, colloquially known as a *man page*. 
+The joke here is so obvious that I probably don't need to make it, so, 
+just know that once you know your Linux Kung-Fu you will be able to instead call up your *wo-man* page. In the meantime, let's open the manual page for `ls`.
 
 You can access the manual using the `man` program.
 
@@ -153,13 +156,17 @@ You can access the manual using the `man` program.
 man ls
 ```
 
+`man` uses a text reading program called `less` that we will cover later in the lesson. For now, here are some tips:
+
 Space key goes forward  
 Or use the arrow keys to scroll up and down.  
 
 When you are done reading, just hit `q` to quit. This can be a little confusing, so please let me know if you are having trouble leaving the `man` page.
 
 
-Programs that are run from the shell can get extremely complicated, and each program can have dozens of flags. No one can learn all of them,  So, please don't stress out if you can't remember the arguments we discuss. You can always pull up the `man` page to look them up. I know that's what I do.
+Programs that are run from the shell can get extremely complicated, and each program can have dozens of flags. 
+No one can learn all of them,  So, please don't stress out if you can't remember the arguments we discuss. 
+You can always pull up the `man` page to look them up. I know that's what I do.
 
 
 ### The Unix directory file structure (a.k.a. where am I?)
@@ -184,7 +191,8 @@ If we type `cd` by itself:
 cd
 ```
 
-This puts you in your home directory. That's **/home/swc**
+This puts you in your home directory. That's **/home/swc**.
+During this exercise don't forget to use your **stickies** to tell us when you are done or need help.
 
 ---
 
@@ -197,7 +205,8 @@ This puts you in your home directory. That's **/home/swc**
 
 ### Where am I?
 
-Let's also check to see where we are. Sometimes when we're wandering around in the file system, it's easy to lose track of where we are and get lost.
+Sometimes when we're wandering around in the file system, it's easy to lose track of where we are and get lost. 
+Luckily, there is a command we can use to get the computer to *tell* us where we are.
 
 If you want to know what directory you're currently in, type:
 
