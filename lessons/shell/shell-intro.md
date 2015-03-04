@@ -269,33 +269,36 @@ Try finding the 'anotherfile.txt' file without changing directories.
 
 ### HUGE Shortcut: Tab Completion
 
-Navigate to the home directory. 
+Navigate to the home directory.
 
+```bash
+cd
+```
+Now we come to one of the key concepts that I'll be teaching you today.
 Computer Scientists are *really lazy*, and all of this typing of directory names starts to feel like work. 
-Luckily, the Computer Scientists who built the UNIX system anticipated our pain. 
+Luckily, the Lazy Computer Scientists who built the UNIX system anticipated our pain. 
 When you start typing out the name of a file or directory, then hit the tab key, 
 the Linux shell will try to fill in the rest of the directory name. For example, enter:
 
-```
-cd
+```bash
 cd w<tab>
 ```
 
-The shell will fill in the rest of the directory name for "workshops". Now go to `workshops/lessons/intro-r/data/`
+The shell will fill in the rest of the directory name for "workshops". Now go to `workshops/lessons/intro-r/data/` by using:
 
-```
+```bash
 cd
 cd wo<tab>le<tab>int<tab>da<tab>
 ```
 
 Now type `ls small-0` and hit tab twice.
 
-```
+```bash
 ls small-0<tab><tab>
 ```
 
-When you hit the first tab, nothing happens. The reason is that there are 
-multiple directories in the directory which start with `small-0`. 
+When you hit the first tab, nothing happens. That is because there are 
+multiple files in the directory which start with `small-0`. 
 Thus, the shell does not know which one to fill in. When you hit tab again, 
 the shell will list the possible choices.
 
@@ -310,7 +313,7 @@ This works no matter what you are doing on the command line - if you want to sto
 
 The `cd` command takes an argument which is the directory name. Directories can be specified using either a *relative path* or a *full path*. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the `pwd` command and you should see:
 
-```
+```bash
 /home/swc
 ```
 
