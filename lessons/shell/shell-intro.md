@@ -120,7 +120,8 @@ cd data
 ls
 ```
 
-In there, all mixed up together are regular files, directories, and an executable program. If we want to know which is which, we can type:
+In there, all mixed up together are regular files, directories, and an executable program. The terminal we have here is using colors to tell us about what we are seeing, 
+but not all terminals are set up that way. On the UVa servers, I don't always have colors. So, in that case, if we want to know which is which, we can type:
 
 ```bash
 ls -F
