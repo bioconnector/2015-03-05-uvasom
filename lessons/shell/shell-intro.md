@@ -300,26 +300,37 @@ ls small-0<tab><tab>
 When you hit the first tab, nothing happens. That is because there are 
 multiple files in the directory which start with `small-0`. 
 Thus, the shell does not know which one to fill in. When you hit tab again, 
-the shell will list the possible choices.
+the shell will list the possible choices. In order to get it to select the one that you want, 
+you need to get to *point of difference* - the character at which a filename becomes unique. 
+In this case, that will be the number 1, and see.. as soon as I type it, the rest of the file name fills in!
 
 You'll notice that the terminal is now waiting for you to finish typing the name of the file, 
 but we want to move forward without doing anything with any of those files. 
 In order to get back to a new line, type `ctrl + c`. 
 This works no matter what you are doing on the command line - if you want to stop doing what you are doing, hit `ctrl + c`.
 
-**Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. You will see the name of every program that starts with an `e`. One of those is `echo`. If you enter `ec<tab>` you will see that tab completion works.
+**Handy Sidenote:** Tab completion can also fill in the names of programs. For example, enter `e<tab><tab>`. 
+You will see the name of every program that starts with an `e`. One of those is `echo`. 
+If you enter `ec<tab>` you will see that tab completion works.
 
 ### Full vs. Relative Paths
 
-The `cd` command takes an argument which is the directory name. Directories can be specified using either a *relative path* or a *full path*. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the `pwd` command and you should see:
+The `cd` command takes an argument which is the directory name. 
+Directories can be specified using either a *relative path* or a *full path*. 
+The directories on the computer are arranged into a hierarchy. 
+The full path tells you where a directory is in that hierarchy. 
+Navigate to the home directory. Now, enter the `pwd` command and you should see:
 
 ```bash
 /home/swc
 ```
 
-which is the full name of your home directory. This tells you that you are in a directory called `swc`, which sits inside a directory called `home` which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory*. So, to summarize: `swc` is a directory in `home` which is a directory in `/`.
+which is the full name of your home directory. This tells you that you are in a directory called `swc`, 
+which sits inside a directory called `home` which sits inside the very top directory in the hierarchy. 
+The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory*. 
+So, to summarize: `swc` is a directory in `home` which is a directory in `/`.
 
-Now enter the following command, and don't forget to use tab completion to help you along:
+Now enter the following command, and don't forget to use tab completion to help you along, because I definitely will be:
 
 ```bash
 ls /home/swc/workshops/lessons/shell/data/hidden
@@ -331,13 +342,21 @@ This shows us the contents of `hidden`. Now lets look at what we get when we giv
 ls workshops/lessons/shell/data/hidden
 ```
 
-And Look! We get the same result! But, instead of specifying the full path, we specified a *relative path*. In other words, we specified the path relative to our current directory. A full path always starts with a `/`. A relative path does not.
+And Look! We get the same result! But, instead of specifying the full path, we specified a *relative path*. 
+In other words, we specified the path relative to our current directory. 
+A full path **always** starts with a `/`. A relative path does not.
 
-A relative path is like getting directions from someone on the street. They tell you to "go right at the Stop sign, and then turn left on Main Street". That works great if you're standing there together, but not so well if you're trying to tell someone how to get there from another country. A full path is like GPS coordinates. It tells you exactly where something is no matter where you are right now.
+To describe the difference another way, a relative path is like getting directions from someone on the street. 
+They tell you to "go right at the Stop sign, and then turn left on Main Street". 
+That works great if you're standing there together, but not so great if you're trying to tell 
+someone how to get to Boylan Heights from China. A full path is like GPS coordinates. 
+It tells you exactly where something is no matter where you are right now.
 
-You can usually use either a full path or a relative path depending on what is most convenient. If we are in the home directory, it is more convenient to just enter the relative path since it involves less typing.
+You can usually use either a full path or a relative path depending on what is most convenient. 
+If we are in the home directory, it is more convenient to just enter the relative path since it involves less typing.
 
-Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate them.
+Over time, as you traverse up and down the directory tree of whatever system you are using, 
+it becomes easier to remember where things are in the tree and how to quickly navigate between them.
 
 ---
 
