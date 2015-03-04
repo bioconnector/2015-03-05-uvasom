@@ -765,27 +765,37 @@ grep GATTACA *.fastq | less
 Now we can use the arrows to scroll up and down and use `q` to get out.
 
 #### wc (water closet, I mean word count)
-There's another command called `wc`. `wc` stands for`word count`. It counts the number of lines or characters. So, we can use it to count the number of lines we're getting back from our `grep` command. And that will tell us how many sequences we're finding with that motif across all the files.
+There's another command called `wc`. `wc` stands for`word count`. It counts the number of lines, words and characters. 
+If we use it on the output from our `grep` command, it will tell us that our output contained 
+XXXXX lines, XXXXX words, and XXXXX characters. (Remember that there weren't any *spaces* in those sequences, 
+so as far as `wc` is concerned, each line is a word.
 
 ```bash
 grep GATTACA *.fastq | wc
 ```
 
-That tells us the number of lines, words and characters in the file. If we just want the number of lines, we can use the `-l` flag for `lines`.
+We are most interested in discovering how many sequences containing 'GATTACA' were found, so the number of lines. 
+If we only want the number of lines we can use the `-l` flag for `lines` to get just that: 
 
 ```bash
 grep GATTACA *.fastq | wc -l
 ```
 
-You could have piped the output to a file like you did the first time and ran `wc` on that file:
+But, on the other hand, we could have just asked `wc` to tell us about that file that we made, instead:
 
 ```bash
 wc gattaca-reads.txt
 ```
+and we would have gotten the same numbers. Why not just write to a file first?
 
-But using the pipe you didn't need to create the intermediate file. Pipes are really powerful for stringing together these different commands, so you can do whatever you need to do.
+By using the pipe, we didn't need to create an intermediate file. It's faster and more 
+efficient to pipe the output from one command to another rather than write intermediate files, 
+which then take up space that you might need for other things. 
+Pipes are really powerful for stringing together these different commands, so you can do whatever you need to do.
 
-The philosophy behind these command line programs is that none of them really do anything all that impressive. BUT when you start chaining them together, you can do some really powerful things really efficiently. If you want to be proficient at using the shell, you must learn to become proficient with the pipe (heh) and redirection operators.
+The philosophy behind these command line programs is that none of them really do anything all that impressive. 
+BUT when you start chaining them together, you can do some really powerful things really efficiently. 
+If you want to be proficient at using the shell, you must learn to become proficient with the pipe (heh) and redirection operators.
 
 For example, draw a cow saying the largest word in the available dictionary of the english language that contains the word "coin":
 
