@@ -316,7 +316,7 @@ If you enter `ec<tab>` you will see that tab completion works.
 ### Full vs. Relative Paths
 
 The `cd` command takes an argument which is the directory name. 
-Directories can be specified using either a *relative path* or a *full path*. 
+Directories can be specified using either a **relative path** or a **full path**. 
 The directories on the computer are arranged into a hierarchy. 
 The full path tells you where a directory is in that hierarchy. 
 Navigate to the home directory. Now, enter the `pwd` command and you should see:
@@ -358,6 +358,10 @@ If we are in the home directory, it is more convenient to just enter the relativ
 Over time, as you traverse up and down the directory tree of whatever system you are using, 
 it becomes easier to remember where things are in the tree and how to quickly navigate between them.
 
+**stickies reminder**
+
+**wait one minute and then give hint**
+
 ---
 
 **EXERCISE**
@@ -371,7 +375,10 @@ it becomes easier to remember where things are in the tree and how to quickly na
 #### Shortcuts
 #### ~ Tilde
 
-There are some shortcuts which you should know about. Dealing with the home directory is very common. In the shell the tilde character, `~`, is a shortcut for your home directory. The tilde key is located at the top left of your keyboard above the tab key.
+There are some shortcuts which you should know about. Dealing with the home directory is very common. 
+In the shell the tilde character, `~`, is a shortcut for your home directory. 
+The tilde key is located at the top left of your keyboard above the tab key. 
+You will notice that when we are in our home directory, as we are now, the prompt shows a tilde in place of the directory name.
 
 ```bash
 ls ~
@@ -445,15 +452,7 @@ The `*` character is a shortcut for "everything". Thus, if you enter `ls *`, you
 ls *fastq.gz
 ```
 
-This lists every file that ends with a `fastq.gz`. This command:
-
-```bash
-ls /usr/bin/*.sh
-```
-
-Lists every file in `/usr/bin` that ends in the characters `.sh`.
-
-You will note that the location of the wildcard changed. You put the wildcard at the *beginning* when you don't care how a file name *starts* and at the *end* when you don't care how it *ends*.
+This lists every file that ends with a `fastq.gz`.
 
 If we wanted to list just the files whose names begin with certains letters, we could do this:
 
@@ -461,16 +460,36 @@ If we wanted to list just the files whose names begin with certains letters, we 
 ls ctl*
 ls uvb*
 ```
+You will note that the location of the wildcard changed in each of these cases. 
+You put the wildcard at the *beginning* when you don't care how a file name *starts* and 
+at the *end* when you don't care how it *ends*.
 
-So how does this actually work? Well...when the shell sees a word that contains the `*` character, it automatically looks for filenames that match the given pattern. In this case, it identified 3 such files. Then, it replaced the `ctl*` with the list of files, separated by spaces.
+This command:
 
-This wild card is extremely useful for lazy computer scientists. For example, what if I wanted to extract all of these compressed files? The files were zipped using a program called `gzip` and they can be unzipped with a program called `gunzip` (pronunciation?) Instead of unzipping them one by one, how about we use:
+```bash
+ls /usr/bin/*.sh
+```
+
+Lists every file in `/usr/bin` that ends in the characters `.sh`.
+
+
+**advanced sidenote**  In this example, where the `*` is in the middle, you begin to see the idea that
+the full path of the file **is** the name of the file. On the file tree you can see that there are `data`
+directories in both the `intro-r` and `shell` directories. But because the *paths* to those directories are 
+different, they are two completely different folders. It's alright if you don't get that idea right now,
+you may see it more clearly over time. 
+
+This wild card is extremely useful for lazy computer scientists. 
+For example, what if I wanted to extract all of these compressed files? 
+The files were zipped using a program called `gzip` and they can be unzipped with a program called `gunzip` 
+(pronunciation?) Instead of unzipping them one by one, how about we use:
 
 
 ```bash
 gunzip *.gz
 ls
 ```
+
 When we look at the contents of the folder, we see that all of the `.gz` extensions are gone!
 
 Now, time for some more practice with wildcards.
