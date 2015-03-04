@@ -476,7 +476,7 @@ ls /usr/bin/*.sh
 Lists every file in `/usr/bin` that ends in the characters `.sh`.
 
 
-**advanced sidenote**  In this example, where the `*` is in the middle, you begin to see the idea that
+**advanced sidenote:**  In this example, where the `*` is in the middle, you begin to see the idea that
 the full path of the file **is** the name of the file. On the file tree you can see that there are `data`
 directories in both the `intro-r` and `shell` directories. But because the *paths* to those directories are 
 different, they are two completely different folders. It's alright if you don't get that idea right now,
@@ -525,7 +525,7 @@ history
 
 You can reuse one of these commands directly by referring to the number of that command. If your history looked like this:
 
-```
+```bash
 259  ls *
 260  ls /usr/bin/*.sh
 261  ls ctl*
@@ -661,8 +661,13 @@ Just as `head` prints the first 10 lines of the file, there's another program th
 ```bash
 tail ctl1.fastq
 ```
-There are various reasons why you might want to take a quick look at the end of your file. Among others, you might want to make sure that the table is complete. If something got messed up during data production, you might have uneven or incomplete columns.
-If you want to see only the last 4 lines of the file, in this case the last read, you can use the `-n` option.
+Which means we have `cat` `head` and `tail`, which is kind of cute.
+
+There are various reasons why you might want to take a quick look at the end of your file. 
+Among others, you might want to make sure that the table is complete. If something got messed up during data production, you might have uneven or incomplete columns.
+
+FASTQ files are formatted so that the information for each read is grouped into four lines, 
+so if you wanted to see all the lines pertaining to the last read, you could use the `-n` option.
 
 
 ```bash
@@ -673,11 +678,11 @@ tail -n 4 ctl1.fastq
 
 I'm about to teach you the only word you will ever need to say to convince everyone that you are a command-line bad ass. Are you ready?
 
-**grep**     *global regular expression parser* (?)
+**grep**
 
 We showed a little how to search within a file using `less`.
 
-Using `grep` we can search within files without even opening them. Grep is a command-line utility for searching plain-text data sets for lines matching a string or regular expression.
+Using `grep` we can search within files without even opening them. Grep is a command-line utility that uses regular expressions to search plain-text for strings matching specific patterns.
 
 Let's find all the lines in ctl1.fastq that contain the sequence motif "GATTACA."
 
@@ -691,54 +696,75 @@ We get back just the sequence line, but what if we wanted all four lines, the wh
 grep -B 1 -A 2 GATTACA ctl1.fastq
 ```
 
-The `-A` flag stands for "after match" so it's returning the line that matches plus the two after it. The `-B` flag returns that number of lines before the match, so that's returning the fastq header.
+The `-A` flag stands for "after match" so it's returning the line that matches plus the two after it. 
+The `-B` flag returns that number of lines before the match, so that's returning the fastq header. 
+**count on fingers** So, that's one line before, the line containing the sequence, and two lines after. So, four.
 
 ---
 
 **EXERCISE**
 
-Search for the sequence 'GATTTTTACA' (GATTACA with 5 T's instead of 2) in ctl1.fastq file and in the output have the sequence name. The output should look like this:
+1. Search for the sequence 'GATTTTTACA' (GATTACA with 5 T's instead of 2) in ctl1.fastq file and in the output have the sequence name. The output should look like this:
 
 ```
 @SRR1145047.5880759
 AAGCTAAAAAAAAAATGGATGTTTCAGTTAAATGTTTTAAAGAGGTACAGATTTTTACAAGGACATAATATAAG
 ```
 
-Next, search for that sequence in all the FASTQ files.
+2. Search for that sequence in all the FASTQ files.
 
 ---
 
 ### Redirection & Pipes
 
-We're excited we have all these sequences that we care about that we just got from the FASTQ files. Perhaps that was some really important motif that is going to help us answer some important question. But all those sequences just went whizzing by with grep. How can we capture them?
+So, it's really great that we've found these lines containing the sequence we are interested in, 
+but, unfortunately, when `grep` gives us our results, it feels like those sequences go by much too fast to really understand them. 
+How can we capture them?
 
-We can do that with something called "redirection". The idea is that we're redirecting the output to the terminal (all the stuff that went whizzing by) to something else. In this case, we want to write it to a file, so that we can look at it later.
+We can do that with something called **redirection**. The idea is that we are taking 
+everything that `grep` is *directing* to the terminal and *redirecting* it someplace else.
 
-We do this with: `>`.
 
-Let's try it out and put all the sequences that contain 'GATTACA' from all the files in to another file called "gattaca-reads.txt".
+#### <
+In this case, we want to write it to a file, so that we can look at it later.
+
+We do this with the character: `>`, commonly known as the "greater than" sign.
+
+We are going to use this symbol write all the sequences that contain 'GATTACA' from all the files into another file called "gattaca-reads.txt".
 
 ```bash
 grep GATTACA *.fastq > gattaca-reads.txt
 ```
 
-The prompt should sit there a little bit, and then it should look like nothing happened. But type `ls`. You should have a new file called "gattaca-reads.txt". Take a look at it and see if it has what you think it should.
+The prompt should sit there a little bit, and then it should look like nothing happened. 
+But type `ls`. You should have a new file called "gattaca-reads.txt". 
+Take a look at it and see if it has what you think it should.
 
 ```bash
 ls
 less gattaca-reads.txt
 ```
+When we look inside gattaca-reads.txt, we see that `grep` has also told us the name of the 
+file where it found the pattern, which is really helpful, because we might want to 
+go back to that original file to look at it further.
 
-There's another useful redirection command that we're going to show, and that's called the pipe: `|`. It's probably not a key on your keyboard you use very much. What `|` does is take the output that scrolling by on the terminal and then can run it through another command. When it was all whizzing by before, we wished we could just slow it down and look at it, like we can with `less`. Well it turns out that we can! We pipe the `grep` command through `less`
+#### | Pipe
+There's another useful redirection command that we're going to show, and that's called the pipe: `|`. 
+It's probably not a key on your keyboard you use very much. It can be found just below 
+the backspace or the delete key, depending on your keyboard. What `|` does is take the 
+*output* that scrolling by on the terminal and then pass it to another command to use as *input*.
 
-The pipe '|' takes the output of the first thing and then puts it in to the second part
+For example, when it was all whizzing by before, we wished we could just slow it down and look at it, 
+like we can with `less`. Well, it turns out that we can! We pipe the `grep` command through to `less`
+
+The pipe '|' takes the output of the first thing and then feeds it to the second thing.
 
 ```bash
 grep GATTACA *.fastq | less
 ```
-
 Now we can use the arrows to scroll up and down and use `q` to get out.
 
+#### wc (water closet, I mean word count)
 There's another command called `wc`. `wc` stands for`word count`. It counts the number of lines or characters. So, we can use it to count the number of lines we're getting back from our `grep` command. And that will tell us how many sequences we're finding with that motif across all the files.
 
 ```bash
