@@ -441,10 +441,13 @@ To summarize, while you are in the `workshops` directory, the commands `ls ~`, `
 
 
 #### Wild cards
-In this example we're going to use some RNA-seq data which comes from RNA-seq done on skin cells treated with ultraviolet light versus controls ([paper](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0093338); [data](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE54413)).
+(In this example we're going to use some RNA-seq data which comes from RNA-seq done on skin cells treated with ultraviolet light versus controls ([paper](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0093338); [data](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE54413)).)
 
 
-Navigate to the `workshops/lessons/shell/data/rnaseq/` directory from your home. This directory contains FASTQ files that are used during RNA-Seq. If we type `ls`, we will see that there are several files in there. Some of the end with `.fastq.gz`. That extra `.gz` extension tells us that these are compressed  files.
+Navigate to the `workshops/lessons/shell/data/rnaseq/` directory from your home. 
+This directory contains FASTQ files that are used during RNA-Seq. 
+If we type `ls`, we will see that there are several files in there. Some of the end with `.fastq.gz`. 
+That extra `.gz` extension tells us that these are compressed  files.
 
 The `*` character is a shortcut for "everything". Thus, if you enter `ls *`, you will see all of the contents of a given directory. But what if you only want to see a certain subset of files in the directory?
 
@@ -504,6 +507,9 @@ Do each of the following using a single `ls` command without navigating to a dif
   -	List all of the files in `/bin` that end with the letter 'o'
 
 ---
+
+### 5 MINUTE BREAK - TAKE A COUGH DROP
+
 
 ### Command History
 
