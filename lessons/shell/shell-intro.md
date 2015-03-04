@@ -566,15 +566,12 @@ cat car-speeds.csv
 
 This prints out the contents of the `car-speeds.csv` file.
 
-
-We did sequencing, and what we have here are just reads that came from a 100 MB region on chromosome 4. We want to be able to look at these files and do some things with them.
-
 ---
 
 **EXERCISE**
 
--	Print out the contents of the `small-01.csv` file. What does this file contain?
--	Without changing directories, use one short command to print the contents of all of the files in the `~/workshops/lessons/shell/data/words` directory.
+1.	Print out the contents of the `small-01.csv` file. What does this file contain?
+2.	**Without changing directories**, use one short command to print the contents of all of the files in the `~/workshops/lessons/shell/data/words` directory.
 
 ---
 
@@ -781,7 +778,7 @@ If we only want the number of lines we can use the `-l` flag for `lines` to get 
 grep GATTACA *.fastq | wc -l
 ```
 
-But, on the other hand, we could have just asked `wc` to tell us about that file that we made, instead:
+But, on the other hand, we could have just asked `wc` to tell us about that file that we made:
 
 ```bash
 wc gattaca-reads.txt
@@ -842,9 +839,11 @@ This program piped together 7 UNIX programs (`cat`, `grep`, `awk`, `sort`, `tail
                                                                   /.-~
 ```
 
+### 2 MINUTE BREAK - TAKE A COUGH DROP
+
 ### Creating, moving, copying, and removing
 
-Now we can move around in the file structure, look at files, search files, redirect. But what if we want to do normal things like copy files or move them around or get rid of them. Sure, if we had a desktop, we could do most of these things without the command line, but what fun would that be?! Besides it's usually faster to do it at the command line, or you'll be on a remote server like Amazon where you won't have another option.
+Now we can move around in the file structure, look at files, search files, redirect. But what if we want to do "usual" things like copy files or move them around or get rid of them. Sure, if we had a desktop, we could do most of these things without the command line, but what fun would that be?! Besides it's usually faster to do it at the command line, or you'll be on a remote server like Amazon where you won't have another option.
 
 The `coldata.csv` file tells us which sample names are which treatment (in this example the filenames are pretty informative, but when they come off the sequencer usually they won't be). This is a really important file, so we want to make a copy so we don't lose it.
 
