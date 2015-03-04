@@ -13,6 +13,7 @@ Learn more:
 
 ## Objectives
 
+-	Open Virtual Machine
 -	What is the shell?
 -	How do you access it?
 -	How do you use it?
@@ -28,7 +29,6 @@ Learn more:
 In order to avoid any operating system issues and to make sure we are all working on the same data, we will use a virtual machine.
 We asked you to install VirtualBox on your computer and a to download a machine image. If you have not already done so, please open VirtualBox and import that machine image.
 If you did *not* download the machine image prior to this class, please put up a *red* sticky note so that some one can bring you a flash drive with the image.
-
 
 
 ## What is the shell?
@@ -49,9 +49,13 @@ Have 10,000,000 files to rename, read in, analyze, and visualize? It's easy to a
 
 
 ### How to access the shell
-There are ways to access the shell on each operating system. Because some operating systems (Windows) have more trouble, we are using a Linux machine within the virtual image in order to learn how to use the shell. Should you wish to use it on your personal machine, please ask after class.
+There are ways to access the shell on each operating system. Because some operating systems 
+(Windows) have more trouble, we are using a Linux machine within the virtual image in order to learn how to use the shell. 
+The Linux operating system, which is open source, was derived from the proprietary UNIX operating system, so sometimes you will see the terms used interchangeably.
+Should you wish to learn how to use the shell on your personal machine, please ask after class.
 
-You access the shell through a program called a Terminal. You can see the terminal program icon in the top left corner of your screen. Please open a terminal window.
+You access the shell through a program called a Terminal. You can see the terminal program icon 
+in the top left corner of your screen. Please open a terminal window.
 
 ### More resources on the shell
 
