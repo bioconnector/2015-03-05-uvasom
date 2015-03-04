@@ -612,11 +612,26 @@ are identical to the `man` program.
 | G     | go to the end       |
 | q     | quit                |
 
-`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching `ctl1.fastq` for the sequence "GATTACA". If you hit "/" then "enter", `less` will just repeat the previous search. `less` searches from the current location and works its way forward. If you are at the end of the file and search for "GATTACA", `less` will not find it. You need to go to the beginning of the file with the `g` key in less, and start the search from there.
+`less` also gives you a way of searching through files. Just hit the "/" key to begin a search. 
+Enter the name of the word you would like to search for and hit enter. It will jump to the next 
+location where that word is found. Try searching `ctl1.fastq` for the sequence "GATTACA".
 
-Remember, the `man` program actually uses `less` internally and therefore uses the same commands, so you can search documentation using "/" as well!
+```
+/GATTACA
+```
+If you hit "/" then "enter", `less` will just repeat the previous search. If you skip to the end of the file using
+```
+G
+```
+suddenly, `less` is telling us that there are NO sequences with that pattern. But we *know* that is not true!
+`less` searches from the current location and works its way forward, so you are at the end of the file and search for "GATTACA", 
+`less` will not find it. You need to go to the beginning of the file with the `g` key, and start the search from there.
 
-There's another way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
+Remember, the `man` program actually uses `less` internally and therefore uses the same commands, 
+so you can search documentation using "/" as well!
+
+There's another way that we can look at files, and in this case, just look at part of them. 
+This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
 
 In order to look at the first 10 lines of a file we can use:
 ```bash
