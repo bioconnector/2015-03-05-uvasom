@@ -76,11 +76,11 @@ Web sites where you can see what the different components of a shell command are
 
 ### Moving around and listing files
 
-We'll start out by moving around the file system and listing files. Today we're going to go through using the command line. These commands are on your handout (fixme).
+(We'll start out by moving around the file system and listing files. Today we're going to go through using the command line.)
 
 Opening the terminal made it look a lot like we are in the Matrix, but it doesn't seem to be much more than a black screen, which is a little intimidating.
-Every time you open a terminal, it will put you in the same starting directory, a *home* directory. A *directory* is the same thing as a *folder*. We just call folders *directories* in the Linux/UNIX world.
-I may slip up now and then and say folder, so I apologize in advance.
+Every time you open a terminal, it will put you in the same starting directory, a *home* directory. A *directory* is the same thing as a *folder*. 
+We just call folders *directories* in the Linux/UNIX world. I may slip up now and then and say folder, so I apologize in advance.
 Let's look at what I've put in your home directory:
 
 
@@ -94,7 +94,10 @@ ls
 cd workshops
 ```
 
-`cd` stands for 'change directory'. Here we just entered the workshops directory. If we were doing this on a graphical shell we would have double-clicked on a little folder icon. It's the same idea.
+`cd` stands for 'change directory'. Here we just entered the workshops directory. 
+If we were doing this on a graphical shell we would have double-clicked on a little folder icon. It's the same idea. 
+From the change in the prompt (that's that string before our blinking cursor) we can see that we are now in the workshops folder. 
+Our machine lists our location in the prompt, but this is not always the case. If you are using a server, it won't always tell you.
 
 In this directory, there should be some things. Let's check. Type:
 
