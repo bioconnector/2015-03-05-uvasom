@@ -30,6 +30,7 @@ In order to avoid any operating system issues and to make sure we are all workin
 We asked you to install VirtualBox on your computer and a to download a machine image. If you have not already done so, please open VirtualBox and import that machine image.
 If you did *not* download the machine image prior to this class, please put up a *red* sticky note so that some one can bring you a flash drive with the image.
 
+If your machine "times out" at some point, you will need to provide a password. The password is the same as the user name: **swc**.
 
 ## What is the shell?
 
