@@ -627,6 +627,11 @@ suddenly, `less` is telling us that there are NO sequences with that pattern. Bu
 `less` searches from the current location and works its way forward, so you are at the end of the file and search for "GATTACA", 
 `less` will not find it. You need to go to the beginning of the file with the `g` key, and start the search from there.
 
+```
+g
+/GATTACA
+```
+
 Remember, the `man` program actually uses `less` internally and therefore uses the same commands, 
 so you can search documentation using "/" as well!
 
