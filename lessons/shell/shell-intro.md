@@ -26,6 +26,8 @@ Learn more:
 
 ### Open the Virtual Machine
 
+### Open the Virtual Machine
+
 In order to avoid any operating system issues and to make sure we are all working on the same data, we will use a virtual machine.
 We asked you to install VirtualBox on your computer and a to download a machine image. If you have not already done so, please open VirtualBox and import that machine image.
 If you did *not* download the machine image prior to this class, please put up a *red* sticky note so that some one can bring you a flash drive with the image.
@@ -198,8 +200,8 @@ During this exercise don't forget to use your **stickies** to tell us when you a
 
 **EXERCISE**
 
--	Using `cd` and `ls`, go in to the 'workshops/lessons/shell/data' directory and list its contents.
--	How many files, how many directories and how many programs are there?
+1.	Using `cd` and `ls`, go in to the 'workshops/lessons/shell/data' directory and list its contents.
+2.	How many files, how many directories and how many programs are there?
 
 ---
 
@@ -839,7 +841,7 @@ This program piped together 7 UNIX programs (`cat`, `grep`, `awk`, `sort`, `tail
                                                                   /.-~
 ```
 
-### 2 MINUTE BREAK - TAKE A COUGH DROP
+### 5 MINUTE BREAK - TAKE A COUGH DROP
 
 ### Creating, moving, copying, and removing
 
@@ -1010,18 +1012,7 @@ Now we can run the program
 
 Now you should have seen some output, and of course, it's AWESOME! Congratulations, you just created your first shell script!
 
----
 
-**EXERCISE**
-
-1. In the `rnaseq` directory, use `nano` to write a script called `quickpeek.sh` that:
-    * Runs `head` on all the fastq files in the current directory
-    * Runs `wc` on all the fastq files
-    * `echo`s "Done!" when finished.
-2. Make the program executable.
-3. Run the program.
-
----
 
 
 ## Where can I learn more about the shell?
