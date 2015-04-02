@@ -2,18 +2,19 @@
 layout: workshop
 root: .
 venue: University of Virginia
-address: Jordan Hall Conference Center, Room 2ABC
+address2: Jordan Hall Conference Center, Room G1/G2
+address: MR5, Room 3005
 country: United-States
 language: en
 latlng: 38.032040,-78.500430
-humandate: Mar 5-6, 2015
+humandate: Apr 15-16, 2015
 humantime: 8:00 am - 4:00 pm
-startdate: 2015-03-05
-enddate: 2015-03-06
+startdate: 2015-04-15
+enddate: 2015-04-16
 instructor: ["Jessica Bonnie", "Zhuo Fu", "Alex Koeppel"]
 helper: ["Stephen Turner", "Bart Ragon"]
 contact: br5n@virginia.edu
-etherpad: https://etherpad.mozilla.org/2015-0305-uvasom
+#etherpad: https://etherpad.mozilla.org/2015-0305-uvasom
 
 ---
 <!--
@@ -83,11 +84,20 @@ etherpad: https://etherpad.mozilla.org/2015-0305-uvasom
 {% if page.latlng %}
 <p>
   <strong>Where:</strong>
+  <p>
+  <strong>Day 1:</strong>
   {{page.address}}.
+  </p>
+  <p>
+  <strong>Day 2:</strong>
+  {{page.address2}}.
+  </p>
+  <p>
   Get directions with
   <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
   or
   <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
+  </p>
 </p>
 {% endif %}
 
